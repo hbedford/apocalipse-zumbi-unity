@@ -7,6 +7,8 @@ public class WeaponController : MonoBehaviour
     public GameObject Bullet;
     public GameObject WeaponPoint;
     // Start is called before the first frame update
+
+    public AudioClip audioShot;
     void Start()
     {
         
@@ -17,6 +19,7 @@ public class WeaponController : MonoBehaviour
     {
         if(Input.GetButtonDown("Fire1")){
             Instantiate(Bullet, WeaponPoint.transform.position, WeaponPoint.transform.rotation);
+            SoundController.instance.PlayOneShot(audioShot);
         }
     }
 }

@@ -112,6 +112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 20
+  AudioKill: {fileID: 8300000, guid: 481066b59f93f67408f539060aa70000, type: 3}
 --- !u!54 &-3552043302843926899
 Rigidbody:
   m_ObjectHideFlags: 0

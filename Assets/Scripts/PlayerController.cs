@@ -6,7 +6,10 @@ public class PlayerController : MonoBehaviour
     private Vector3 direction;
     public LayerMask groundMask;
     public GameObject TextGameOver;
-    public bool IsLive = true;
+    public int health = 100;
+
+    public InterfaceController  interfaceController;
+    public AudioClip audioHit;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,7 +28,7 @@ public class PlayerController : MonoBehaviour
 
         bool isMoving = direction != Vector3.zero;
         GetComponent<Animator>().SetBool("Moving", isMoving);
-        if(!IsLive)
+        if(health == 0)
         {
             if(Input.GetKeyDown(KeyCode.R))
             {
@@ -51,5 +54,18 @@ public class PlayerController : MonoBehaviour
             GetComponent<Rigidbody>().MoveRotation(newRotation);
 
         }
+    }
+
+    public void ReceiveDamage(int damage){
+
+        health = health-damage<0?0:health-damage;
+        interfaceController.UpdateLife();
+        SoundController.instance.PlayOneShot(audioHit);
+        if(health == 0){
+            TextGameOver.SetActive(true);
+            Time.timeScale = 0;
+        }
+        
+
     }
 }

@@ -7,6 +7,7 @@ public class ZombieController : MonoBehaviour
 
     public GameObject Player;
     public float Speed = 5;
+    Rigidbody rigidBody;
 
     // Start is called before the first frame update
     void Start()
@@ -14,6 +15,7 @@ public class ZombieController : MonoBehaviour
         Player = GameObject.FindWithTag("Player");
         int randomType = Random.Range(1, 28);
         transform.GetChild(randomType).gameObject.SetActive(true);
+        rigidBody = GetComponent<Rigidbody>();
 
     }
 
@@ -31,9 +33,9 @@ public class ZombieController : MonoBehaviour
 
         if(distance >2.5 ){
             
-            GetComponent<Rigidbody>().MovePosition(GetComponent<Rigidbody>().position + (direction.normalized *Speed * Time.deltaTime));
+            rigidBody.MovePosition(rigidBody.position + (direction.normalized *Speed * Time.deltaTime));
             Quaternion rotate = Quaternion.LookRotation(direction);
-            GetComponent<Rigidbody>().MoveRotation(rotate);
+            rigidBody.MoveRotation(rotate); 
 
             GetComponent<Animator>().SetBool("attack", false);
         }
@@ -43,11 +45,9 @@ public class ZombieController : MonoBehaviour
         }
     }
 
-    void AttackPlayer()
+     void AttackPlayer()
     {
-        Time.timeScale = 0;
-        Player.GetComponent<PlayerController>().TextGameOver.SetActive(true);
-        Player.GetComponent<PlayerController>().IsLive = false;
+        Player.GetComponent<PlayerController>().ReceiveDamage(10);
 
     }
 }
