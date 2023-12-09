@@ -11,7 +11,12 @@ public class ZombieController : MonoBehaviour, IHit
     private StatusController statusController;
     bool isAttacking = false;
     public AudioClip AudioKill;
-    void Start()
+    private Vector3 randomPosition;
+    private float counterRandomPosition = 0;
+    private float  timeToRandomPosition = 5;
+
+    Vector3 direction;
+void Start()
     {
         Player = GameObject.FindWithTag("Player");
         RandomZumbie();
@@ -23,12 +28,17 @@ public class ZombieController : MonoBehaviour, IHit
 
 
     void FixedUpdate(){
-        Vector3 direction = Player.transform.position - transform.position;
 
         float distance = Vector3.Distance(transform.position, Player.transform.position);
-      
+
+        if (distance > 10)
+        {
+            Walking();
+            return;
+        }
 
         if (distance >2.5 && distance <10 ){
+            direction = Player.transform.position - transform.position;
 
             movementController.Move(direction, statusController.Speed);
             movementController.Rotate(direction);
@@ -71,6 +81,35 @@ public class ZombieController : MonoBehaviour, IHit
     public void Die()
     {
         Destroy(gameObject);
+    }
+
+    Vector3 RandomPosition()
+    {
+        Vector3 position = Random.insideUnitSphere * 10;
+
+        position  += transform.position;
+        position.y = 0;
+        return position;
+
+    }
+
+    void Walking()
+    {
+
+        counterRandomPosition -= Time.deltaTime;
+        if (counterRandomPosition <= 0)
+        {
+            randomPosition = RandomPosition();
+            counterRandomPosition += timeToRandomPosition;
+        }
+
+        bool ficouPertoOSuficiente = Vector3.Distance(transform.position, randomPosition) <= 0.5;
+
+        if (ficouPertoOSuficiente == false)
+        {
+            direction = randomPosition - transform.position;
+            movementController.Move(direction, statusController.Speed);
+        }
     }
 }
 
