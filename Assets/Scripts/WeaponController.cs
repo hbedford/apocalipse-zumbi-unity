@@ -6,18 +6,13 @@ public class WeaponController : MonoBehaviour
 {
     public GameObject Bullet;
     public GameObject WeaponPoint;
-    // Start is called before the first frame update
 
     public AudioClip audioShot;
-    void Start()
-    {
-        
-    }
+ 
 
-    // Update is called once per frame
     void Update()
     {
-        if(Input.GetButtonDown("Fire1")){
+        if(Input.GetButtonDown("Fire1") && Time.timeScale !=0){
             Instantiate(Bullet, WeaponPoint.transform.position, WeaponPoint.transform.rotation);
             SoundController.instance.PlayOneShot(audioShot);
         }

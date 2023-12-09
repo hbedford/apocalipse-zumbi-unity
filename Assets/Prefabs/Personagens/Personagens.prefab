@@ -2557,6 +2557,7 @@ GameObject:
   - component: {fileID: 6646709132540368597}
   - component: {fileID: 4385121168108533347}
   - component: {fileID: -4695926401123185983}
+  - component: {fileID: 8265585441748566016}
   m_Layer: 0
   m_Name: Personagens
   m_TagString: Untagged
@@ -2665,13 +2666,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea76dfd06aadbfa46ab4ef3d6e306e3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
   groundMask:
     serializedVersion: 2
     m_Bits: 0
   TextGameOver: {fileID: 0}
-  health: 100
   interfaceController: {fileID: 0}
+  animatorController: {fileID: 0}
+  statusController: {fileID: 0}
   audioHit: {fileID: 0}
 --- !u!114 &6646709132540368597
 MonoBehaviour:
@@ -2712,6 +2713,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c820c6dcce2e3bf4e83cd50bc52ac849, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8265585441748566016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1884102019447498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a48f419e687ec454a8a1c480cc0c5153, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InitialHealth: 100
+  Health: 0
+  Speed: 5
 --- !u!1 &1938851689004064
 GameObject:
   m_ObjectHideFlags: 0

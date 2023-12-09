@@ -562,6 +562,7 @@ GameObject:
   - component: {fileID: 8115179485121577236}
   - component: {fileID: 1909726849208487934}
   - component: {fileID: 5622932686001397870}
+  - component: {fileID: 103565065608980430}
   m_Layer: 0
   m_Name: Zumbi
   m_TagString: Inimigo
@@ -675,8 +676,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9fcc6a8354a73048885abc53efd2392, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 0}
-  Speed: 5
+  Player: {fileID: 1884102019447498, guid: 4b3bb44effa49480d8d18049684cc33a, type: 3}
+  AudioKill: {fileID: 8300000, guid: 481066b59f93f67408f539060aa70000, type: 3}
 --- !u!114 &1909726849208487934
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -701,6 +702,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ceccb7d607fdc1b469f5d985f05ad42b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &103565065608980430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1063500868937916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a48f419e687ec454a8a1c480cc0c5153, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InitialHealth: 100
+  Health: 0
+  Speed: 3
 --- !u!1 &1065480718027956
 GameObject:
   m_ObjectHideFlags: 0

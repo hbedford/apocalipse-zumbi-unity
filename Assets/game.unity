@@ -18672,6 +18672,14 @@ PrefabInstance:
       propertyPath: WeaponPoint
       value: 
       objectReference: {fileID: 372408710}
+    - target: {fileID: 8265585441748566016, guid: 4b3bb44effa49480d8d18049684cc33a, type: 3}
+      propertyPath: Speed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8265585441748566016, guid: 4b3bb44effa49480d8d18049684cc33a, type: 3}
+      propertyPath: InitialHealth
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b3bb44effa49480d8d18049684cc33a, type: 3}
 --- !u!1 &957237918 stripped
@@ -23504,7 +23512,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1160886396}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.37, y: 0.01, z: -36.46}
+  m_LocalPosition: {x: 30.54, y: 0.01, z: 6.43}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -23524,7 +23532,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Zombie: {fileID: 1063500868937916, guid: 35861510587b7489780fe86970823679, type: 3}
-  TimeToGenerate: 1
+  TimeToGenerate: 5
 --- !u!4 &1162078831 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4791428832001672, guid: 0b76d7f1a737248a59eb5b1fef8f7ba4, type: 3}
@@ -27221,6 +27229,52 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4531381837567822, guid: ec8fae91bf97f42ae8527b29be8ca952, type: 3}
   m_PrefabInstance: {fileID: 1867923312}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1356599616
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1356599618}
+  - component: {fileID: 1356599617}
+  m_Layer: 0
+  m_Name: GenerateZombie (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1356599617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1356599616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6ff3c8d620a7e349bbd4443a8f9a89b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Zombie: {fileID: 1063500868937916, guid: 35861510587b7489780fe86970823679, type: 3}
+  TimeToGenerate: 5
+--- !u!4 &1356599618
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1356599616}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 30.54, y: 0.01, z: 6.43}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1356624100 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4544171000348092, guid: 3f715056abeb9446fb0b5d697e133844, type: 3}
@@ -42739,7 +42793,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Zombie: {fileID: 1063500868937916, guid: 35861510587b7489780fe86970823679, type: 3}
-  TimeToGenerate: 3
+  TimeToGenerate: 10
 --- !u!4 &1992910331
 Transform:
   m_ObjectHideFlags: 0
@@ -42748,7 +42802,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1992910329}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -23.32, y: 0.01, z: -36.46}
+  m_LocalPosition: {x: -5.17, y: 0.01, z: 30.44}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

@@ -7,7 +7,6 @@ public class BulletController : MonoBehaviour
 {
     public float Speed = 20;
     // Start is called before the first frame update
-    public AudioClip AudioKill;
     void Start()
     {
         
@@ -23,8 +22,7 @@ public class BulletController : MonoBehaviour
     {
         if(other.gameObject.tag == "Inimigo")
         {
-            Destroy(other.gameObject);
-            SoundController.instance.PlayOneShot(AudioKill);
+            other.gameObject.GetComponent<ZombieController>().Hit(10);
 
         }
         Destroy(gameObject);

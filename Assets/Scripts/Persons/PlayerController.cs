@@ -1,16 +1,14 @@
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour, IHit
 {
-    public float speed = 10;
     private Vector3 direction;
     public LayerMask groundMask;
     public GameObject TextGameOver;
-    public int health = 100;
-
     public InterfaceController  interfaceController;
     private MovementPlayerController movementPlayer;
     public AnimatorController animatorController;
+    public StatusController statusController;
 
     public AudioClip audioHit;
     void Start()
@@ -18,10 +16,10 @@ public class PlayerController : MonoBehaviour
         Time.timeScale = 1;
         movementPlayer = GetComponent<MovementPlayerController>();
         animatorController = GetComponent<AnimatorController>();
+        statusController = GetComponent<StatusController>();
 
     }
 
-    // Update is called once per frame
     void Update()
     {
         float x = Input.GetAxis("Horizontal");
@@ -31,7 +29,7 @@ public class PlayerController : MonoBehaviour
         
 
         animatorController.Moving(direction.magnitude);
-        if(health == 0)
+        if(statusController.Health == 0)
         {
             if(Input.GetKeyDown(KeyCode.R))
             {
@@ -42,21 +40,27 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate(){
         
-        movementPlayer.Move(direction, speed);
+        movementPlayer.Move(direction, statusController.Speed);
 
         movementPlayer.RotatePlayer(groundMask);
     }
 
-    public void ReceiveDamage(int damage){
+   
 
-        health = health-damage<0?0:health-damage;
+    public void Hit(int damage)
+    {
+        statusController.LoseHealth(damage);
         interfaceController.UpdateLife();
         SoundController.instance.PlayOneShot(audioHit);
-        if(health == 0){
-            TextGameOver.SetActive(true);
-            Time.timeScale = 0;
+        if (statusController.Health == 0)
+        {
+            Die();
         }
-        
+    }
 
+    public void Die()
+    {
+        TextGameOver.SetActive(true);
+        Time.timeScale = 0;
     }
 }

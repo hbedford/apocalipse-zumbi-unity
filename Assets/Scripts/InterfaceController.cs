@@ -10,17 +10,13 @@ public class InterfaceController : MonoBehaviour
     void Start()
     {
         playerController = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
-        SliderPlayerLife.maxValue = playerController.health;
+        SliderPlayerLife.maxValue = playerController.statusController.Health;
         UpdateLife();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-    }
 
     public void UpdateLife()
     {
-        SliderPlayerLife.value = playerController.health;
+        SliderPlayerLife.value = playerController.statusController.Health;
     }
 }
