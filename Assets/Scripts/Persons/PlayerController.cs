@@ -9,11 +9,15 @@ public class PlayerController : MonoBehaviour
     public int health = 100;
 
     public InterfaceController  interfaceController;
+    private MovementPlayerController movementPlayer;
+    public AnimatorController animatorController;
+
     public AudioClip audioHit;
-    // Start is called before the first frame update
     void Start()
     {
         Time.timeScale = 1;
+        movementPlayer = GetComponent<MovementPlayerController>();
+        animatorController = GetComponent<AnimatorController>();
 
     }
 
@@ -26,8 +30,7 @@ public class PlayerController : MonoBehaviour
         direction = new Vector3(x, 0, z);
         
 
-        bool isMoving = direction != Vector3.zero;
-        GetComponent<Animator>().SetBool("Moving", isMoving);
+        animatorController.Moving(direction.magnitude);
         if(health == 0)
         {
             if(Input.GetKeyDown(KeyCode.R))
@@ -39,21 +42,9 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate(){
         
-        GetComponent<Rigidbody>().MovePosition(GetComponent<Rigidbody>().position + (direction * Time.deltaTime * speed));
+        movementPlayer.Move(direction, speed);
 
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        Debug.DrawRay(ray.origin, ray.direction * 100, Color.red);
-        RaycastHit rayHit;
-
-        if(Physics.Raycast(ray, out rayHit, 100,groundMask))
-        {
-            Vector3 playerDirectionPosition = rayHit.point - transform.position;
-            playerDirectionPosition.y = transform.position.y;
-
-            Quaternion newRotation = Quaternion.LookRotation(playerDirectionPosition);
-            GetComponent<Rigidbody>().MoveRotation(newRotation);
-
-        }
+        movementPlayer.RotatePlayer(groundMask);
     }
 
     public void ReceiveDamage(int damage){

@@ -2555,6 +2555,8 @@ GameObject:
   - component: {fileID: 1724176762}
   - component: {fileID: 1724176760}
   - component: {fileID: 6646709132540368597}
+  - component: {fileID: 4385121168108533347}
+  - component: {fileID: -4695926401123185983}
   m_Layer: 0
   m_Name: Personagens
   m_TagString: Untagged
@@ -2664,6 +2666,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 0
+  TextGameOver: {fileID: 0}
+  health: 100
+  interfaceController: {fileID: 0}
+  audioHit: {fileID: 0}
 --- !u!114 &6646709132540368597
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2674,6 +2683,33 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0f311ff99ab259847b1feae70a48c866, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Bullet: {fileID: 0}
+  WeaponPoint: {fileID: 0}
+  audioShot: {fileID: 0}
+--- !u!114 &4385121168108533347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1884102019447498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceccb7d607fdc1b469f5d985f05ad42b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-4695926401123185983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1884102019447498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c820c6dcce2e3bf4e83cd50bc52ac849, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1938851689004064
