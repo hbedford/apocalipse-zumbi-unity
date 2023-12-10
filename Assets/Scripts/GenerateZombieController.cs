@@ -7,6 +7,7 @@ public class GenerateZombieController : MonoBehaviour
     public GameObject Zombie;
     private float counter = 0;
     public float TimeToGenerate = 1;
+    public LayerMask LayerZombie;
     void Start()
     {
         
@@ -18,9 +19,24 @@ public class GenerateZombieController : MonoBehaviour
         counter += Time.deltaTime;
         if(counter> TimeToGenerate)
         {
+            GenerateNewZombie();
             counter = 0;
-            Instantiate(Zombie, transform.position, transform.rotation);
 
         }
+    }
+
+    void GenerateNewZombie()
+    {
+        Vector3 positionToGenerate = RandomPosition();
+        Collider[] colliders = Physics.OverlapSphere(positionToGenerate, 1,LayerZombie);
+        Instantiate(Zombie, positionToGenerate, transform.rotation);
+    }
+
+    Vector3 RandomPosition()
+    {
+        Vector3 position = Random.insideUnitSphere * 3;
+        position += transform.position;
+        position.y = 0;
+        return position;
     }
 }

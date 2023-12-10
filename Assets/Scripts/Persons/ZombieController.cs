@@ -109,6 +109,7 @@ void Start()
         {
             direction = randomPosition - transform.position;
             movementController.Move(direction, statusController.Speed);
+            movementController.Rotate(direction);
         }
     }
 }
