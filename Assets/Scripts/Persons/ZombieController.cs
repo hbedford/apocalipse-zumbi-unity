@@ -15,8 +15,10 @@ public class ZombieController : MonoBehaviour, IHit
     private float counterRandomPosition = 0;
     private float  timeToRandomPosition = 5;
     private float percentagemGenerateMedicKit = 0.1f;
-   public GameObject medicKit;
+    public GameObject medicKit;
     private InterfaceController interfaceController;
+    public GenerateZombieController myGenerate;
+
 
     Vector3 direction;
 void Start()
@@ -88,6 +90,7 @@ void Start()
         Destroy(gameObject);
         verifyGenerateMedicKit(percentagemGenerateMedicKit);
         interfaceController.UpdateAmountZombiesKilled();
+        myGenerate.ZombieDie();
     }
 
     void verifyGenerateMedicKit(float percentage)
@@ -113,10 +116,13 @@ void Start()
     {
 
         counterRandomPosition -= Time.deltaTime;
+
         if (counterRandomPosition <= 0)
         {
             randomPosition = RandomPosition();
-            counterRandomPosition += timeToRandomPosition;
+            counterRandomPosition += timeToRandomPosition + Random.Range(-2f,2f);
+
+           
         }
 
         bool ficouPertoOSuficiente = Vector3.Distance(transform.position, randomPosition) <= 0.5;
@@ -126,6 +132,8 @@ void Start()
             direction = randomPosition - transform.position;
             movementController.Move(direction, statusController.Speed);
             movementController.Rotate(direction);
+            
+
         }
     }
 }
