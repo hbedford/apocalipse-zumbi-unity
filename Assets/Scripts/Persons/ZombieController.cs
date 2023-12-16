@@ -16,6 +16,7 @@ public class ZombieController : MonoBehaviour, IHit
     private float  timeToRandomPosition = 5;
     private float percentagemGenerateMedicKit = 0.1f;
    public GameObject medicKit;
+    private InterfaceController interfaceController;
 
     Vector3 direction;
 void Start()
@@ -25,6 +26,7 @@ void Start()
         movementController = GetComponent<MovementController>();
         animator = GetComponent<AnimatorController>();
         statusController = GetComponent<StatusController>();
+        interfaceController = GameObject.FindObjectOfType(typeof(InterfaceController)) as InterfaceController;
 
     }
 
@@ -85,6 +87,7 @@ void Start()
 
         Destroy(gameObject);
         verifyGenerateMedicKit(percentagemGenerateMedicKit);
+        interfaceController.UpdateAmountZombiesKilled();
     }
 
     void verifyGenerateMedicKit(float percentage)

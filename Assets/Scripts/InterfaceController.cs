@@ -14,6 +14,8 @@ public class InterfaceController : MonoBehaviour
     public TMP_Text TextTimeSurvived;
     public TMP_Text TextMaxTimeSurvived;
     public float maxTimeSurvived;
+    private int amountZombiesKilled = 0;
+    public TMP_Text TextAmountZombiesKilled;
     void Start()
     {
         playerController = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
@@ -68,6 +70,12 @@ public class InterfaceController : MonoBehaviour
     void changeTextMaxTimeSurvived(int minutes,int seconds)
     {
         TextMaxTimeSurvived.text = string.Format("Seu melhor tempo é {0}min e {1}s", minutes, seconds);
+    }
+
+    public void UpdateAmountZombiesKilled()
+    {
+        amountZombiesKilled++;
+        TextAmountZombiesKilled.text = string.Format("x {0}", amountZombiesKilled);
     }
 
     public void Restart()
