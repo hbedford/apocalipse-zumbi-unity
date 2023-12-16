@@ -14,6 +14,8 @@ public class ZombieController : MonoBehaviour, IHit
     private Vector3 randomPosition;
     private float counterRandomPosition = 0;
     private float  timeToRandomPosition = 5;
+    private float percentagemGenerateMedicKit = 0.1f;
+   public GameObject medicKit;
 
     Vector3 direction;
 void Start()
@@ -80,7 +82,18 @@ void Start()
 
     public void Die()
     {
+
         Destroy(gameObject);
+        verifyGenerateMedicKit(percentagemGenerateMedicKit);
+    }
+
+    void verifyGenerateMedicKit(float percentage)
+    {
+        float random = Random.Range(0, 1.0f);
+        if (random <= percentage)
+        {
+            Instantiate(medicKit, transform.position, Quaternion.identity);
+        }
     }
 
     Vector3 RandomPosition()

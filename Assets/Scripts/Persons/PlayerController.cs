@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour, IHit
+public class PlayerController : MonoBehaviour, IHit, IHeal
 {
     private Vector3 direction;
     public LayerMask groundMask;
@@ -55,5 +55,11 @@ public class PlayerController : MonoBehaviour, IHit
     public void Die()
     {
         interfaceController.GameOver();
+    }
+
+    public void Heal(int amount)
+    {
+        statusController.Heal(amount);
+        interfaceController.UpdateLife();
     }
 }

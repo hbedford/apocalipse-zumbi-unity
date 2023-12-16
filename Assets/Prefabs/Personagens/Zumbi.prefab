@@ -678,6 +678,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 1884102019447498, guid: 4b3bb44effa49480d8d18049684cc33a, type: 3}
   AudioKill: {fileID: 8300000, guid: 481066b59f93f67408f539060aa70000, type: 3}
+  medicKit: {fileID: 1060151288946202, guid: 6150c6f66b7034ec5b3672478195682a, type: 3}
 --- !u!114 &1909726849208487934
 MonoBehaviour:
   m_ObjectHideFlags: 0
