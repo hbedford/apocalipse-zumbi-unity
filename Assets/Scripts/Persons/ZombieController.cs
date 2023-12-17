@@ -80,7 +80,7 @@ void Start()
 
     void RandomZumbie()
     {
-        int randomType = Random.Range(1, 28);
+        int randomType = Random.Range(1, transform.childCount);
         transform.GetChild(randomType).gameObject.SetActive(true);
     }
 

@@ -3103,6 +3103,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boss
       objectReference: {fileID: 0}
+    - target: {fileID: 1063500868937916, guid: b64a852753f94ff478f141b3abd3b287, type: 3}
+      propertyPath: m_TagString
+      value: Boss
+      objectReference: {fileID: 0}
     - target: {fileID: 4941635705825534, guid: b64a852753f94ff478f141b3abd3b287, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -3150,6 +3154,10 @@ PrefabInstance:
     - target: {fileID: 103565065608980430, guid: b64a852753f94ff478f141b3abd3b287, type: 3}
       propertyPath: Speed
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2304334549411656256, guid: b64a852753f94ff478f141b3abd3b287, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6602560801179304364, guid: b64a852753f94ff478f141b3abd3b287, type: 3}
       propertyPath: m_StoppingDistance
