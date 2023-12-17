@@ -95,10 +95,12 @@ void Start()
     public void Die()
     {
 
-        Destroy(gameObject);
+        //Destroy(gameObject);
         verifyGenerateMedicKit(percentagemGenerateMedicKit);
         interfaceController.UpdateAmountZombiesKilled();
         myGenerate.ZombieDie();
+        animator.Die();
+        this.enabled = false;
     }
 
     void verifyGenerateMedicKit(float percentage)

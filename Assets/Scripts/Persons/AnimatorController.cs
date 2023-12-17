@@ -26,5 +26,10 @@ public class AnimatorController : MonoBehaviour
         animator.SetFloat("moving", value);
     }
 
+    public void Die()
+    {
+        animator.SetTrigger("die");
+    }
+
     
 }
