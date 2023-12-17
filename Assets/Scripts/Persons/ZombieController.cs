@@ -37,11 +37,16 @@ void Start()
 
         float distance = Vector3.Distance(transform.position, Player.transform.position);
 
+        animator.Moving(Vector3.Distance(transform.position,randomPosition));
+        Debug.Log(Vector3.Distance(transform.position, randomPosition).ToString());
+
         if (distance > 10)
         {
             Walking();
+
             return;
         }
+
 
         if (distance >2.5 && distance <10 ){
             direction = Player.transform.position - transform.position;
@@ -61,7 +66,10 @@ void Start()
             if (isAttacking) return;
             isAttacking = true;
             Invoke("AttackPlayer", 1);
+
         }
+
+        animator.Moving(direction.magnitude);
     }
 
 
@@ -132,7 +140,8 @@ void Start()
             direction = randomPosition - transform.position;
             movementController.Move(direction, statusController.Speed);
             movementController.Rotate(direction);
-            
+
+
 
         }
     }
