@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class BossController : MonoBehaviour, IHit
 {
@@ -11,6 +12,7 @@ public class BossController : MonoBehaviour, IHit
     private AnimatorController AnimatorController;
     private MovementController movementController;
     private bool isAttacking = false;
+    public Slider sliderLife;
 
     private void Start()
     {
@@ -20,6 +22,8 @@ public class BossController : MonoBehaviour, IHit
         agent.speed = statusController.Speed;
         AnimatorController = GetComponent<AnimatorController>();
         movementController = GetComponent<MovementController>();
+        sliderLife.maxValue = statusController.InitialHealth;
+        updateLife();
 
     }
 
@@ -55,6 +59,7 @@ public class BossController : MonoBehaviour, IHit
     public void Hit(int value)
     {
         statusController.LoseHealth(value);
+        updateLife();
         if (statusController.Health <= 0)
         {
            Die();
@@ -67,6 +72,11 @@ public class BossController : MonoBehaviour, IHit
         AnimatorController.Die();
         this.enabled = false;
         agent.enabled = false;
+    }
+
+    void updateLife()
+    {
+        sliderLife.value = statusController.Health;
     }
 
 }
