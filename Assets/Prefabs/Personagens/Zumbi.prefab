@@ -680,6 +680,7 @@ MonoBehaviour:
   AudioKill: {fileID: 8300000, guid: 481066b59f93f67408f539060aa70000, type: 3}
   medicKit: {fileID: 1060151288946202, guid: 6150c6f66b7034ec5b3672478195682a, type: 3}
   myGenerate: {fileID: 0}
+  ParticleBloodZombie: {fileID: 5230385179721452625, guid: 53aa5502a80c56e40b600e5dcad8322b, type: 3}
 --- !u!114 &1909726849208487934
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Numerics;
 using UnityEditor;
 using UnityEngine;
+using Quaternion = UnityEngine.Quaternion;
 
 public class BulletController : MonoBehaviour
 {
@@ -20,10 +22,15 @@ public class BulletController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        switch(other.gameObject.tag )
+
+        Quaternion rotation = Quaternion.LookRotation(-transform.forward);
+        switch (other.gameObject.tag )
         {
             case "Inimigo":
-                other.gameObject.GetComponent<ZombieController>().Hit(10);
+                ZombieController zombie = other.gameObject.GetComponent<ZombieController>();
+                zombie.Hit(10);
+                zombie.ParticleBlood(transform.position,rotation);
+
                 break;
 
             case "Boss":

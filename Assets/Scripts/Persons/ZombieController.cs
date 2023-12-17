@@ -18,6 +18,7 @@ public class ZombieController : MonoBehaviour, IHit
     public GameObject medicKit;
     private InterfaceController interfaceController;
     public GenerateZombieController myGenerate;
+    public GameObject ParticleBloodZombie;
 
 
     Vector3 direction;
@@ -89,6 +90,12 @@ void Start()
         Die();
         SoundController.instance.PlayOneShot(AudioKill);
     }
+
+    public void ParticleBlood(Vector3 position, Quaternion rotation)
+    {
+        Instantiate(ParticleBloodZombie, position, rotation);
+    }
+
 
     public void Die()
     {
