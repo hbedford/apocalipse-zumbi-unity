@@ -37,8 +37,6 @@ void Start()
 
         float distance = Vector3.Distance(transform.position, Player.transform.position);
 
-        animator.Moving(Vector3.Distance(transform.position,randomPosition));
-        Debug.Log(Vector3.Distance(transform.position, randomPosition).ToString());
 
         if (distance > 10)
         {

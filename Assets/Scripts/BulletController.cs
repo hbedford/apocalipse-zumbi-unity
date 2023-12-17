@@ -20,9 +20,15 @@ public class BulletController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "Inimigo")
+        switch(other.gameObject.tag )
         {
-            other.gameObject.GetComponent<ZombieController>().Hit(10);
+            case "Inimigo":
+                other.gameObject.GetComponent<ZombieController>().Hit(10);
+                break;
+
+            case "Boss":
+                other.gameObject.GetComponent<BossController>().Hit(10);
+                break;
 
         }
         Destroy(gameObject);

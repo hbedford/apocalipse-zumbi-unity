@@ -5,7 +5,7 @@ using UnityEngine;
 public class StatusController : MonoBehaviour
 {
     public int InitialHealth;
-    //[HideInInspector]
+    [HideInInspector]
     public int Health;
     public float Speed;
 
@@ -16,9 +16,6 @@ public class StatusController : MonoBehaviour
 
     public void LoseHealth(int value)
     {
-        //Show on print the value of health
-        Debug.Log("Health: " + Health);
-        Debug.Log("Value: " + value);
 
         if(Health - value <= 0)
         {
